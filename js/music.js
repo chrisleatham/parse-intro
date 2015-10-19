@@ -1,35 +1,42 @@
 // Initialize Parse app
-
+Parse.initialize('MLJR5j0QRKFraxo5S5r5W8hQMqxpTstfMjiQq8gd', '5xQohdvrs6zHL2aejwHoPWYfLUw5MCmjAxTQZ231');
 
 // Create a new sub-class of the Parse.Object, with name "Music"
-
+var Music = Parse.Object.extend('Music');
 
 // Create a new instance of your Music class 
-
+//var music = new Music();
 
 // Set a property 'band' equal to a band name
+// music.set('band', 'The Knocks');
 
-
-// Set a property 'website' equal to the band's website
-
+// // Set a property 'website' equal to the band's website
+// music.set('website', 'www.theknocks.com/');
     
-// Set a property 'song' equal to a song
+// // Set a property 'song' equal to a song
+// music.set('song', 'Classic (feat. Powers)');
 
-
-// Save your instance of your song -- and go see it on parse.com!
-
+// // Save your instance of your song -- and go see it on parse.com!
+// music.save();
 
 // Click event when form is submitted
 $('form').submit(function() {
 
 	// Create a new instance of your Music class 
-
+	var music = new Music();
 
 	// For each input element, set a property of your new instance equal to the input's value
+	// music.set('band', $("#band").val());
+	// music.set('website', $("#website").val());
+	// music.set('song', $("#song").val());
 
+	$(this).find('input').each(funtion() {
+		music.set($(this).attr('id'), $(this).val())
+		$(this).val();
+	})
 
 	// After setting each property, save your new instance back to your database
-
+	music.save();
 	
 	return false
 })
